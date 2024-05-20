@@ -1,0 +1,16 @@
+{
+  "query": {
+    "script_score": {
+      "query": {
+        "match_all": {}
+      },
+      "script": {
+        "source": "ArrayList queryTerms = params.queryTerms;double score = 0.0;double queryNorm = 0.0;double docNorm = 0.0;Map queryTFIDF = new HashMap();Map docTFIDF = new HashMap();for (Object termObj : queryTerms) {String term = (String) termObj;double tf = 0;for (Object queryTermObj : queryTerms) {String queryTerm = (String) queryTermObj;if (term.equals(queryTerm)) {tf += 1;}}double idf = Math.log((double) params.totalDocs / (1 + (doc.containsKey(term) ? doc.get(term).docFreq() : 0)));queryTFIDF.put(term, tf * idf);queryNorm += Math.pow(tf * idf, 2);}for (Object termObj : queryTerms) {String term = (String) termObj;if (doc.containsKey(term)) {double tf = doc.get(term).termFreq();double idf = Math.log((double) params.totalDocs / (1 + (doc.containsKey(term) ? doc.get(term).docFreq() : 0)));double tfidf = tf * idf;docTFIDF.put(term, tfidf);docNorm += Math.pow(tfidf, 2);score += tfidf * (queryTFIDF.containsKey(term) ? queryTFIDF.get(term) : 0.0);}}queryNorm = Math.sqrt(queryNorm);docNorm = Math.sqrt(docNorm);return (queryNorm == 0 || docNorm == 0) ? 0 : score / (queryNorm * docNorm);",
+        "params": {
+          "queryTerms": ["honda", "engine"],
+          "totalDocs": 930
+        }
+      }
+    }
+  }
+}

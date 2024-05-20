@@ -1,0 +1,47 @@
+# ignore ALL files in ANY directory named target
+target/
+
+# ignore the generated .json file
+post_data.json
+
+# ignore the Main2.java file
+Main2.java
+
+# ignore the mappings.json file
+mappings.json
+
+# ignore the elasticsearch_api_key.txt file
+elasticsearch_api_key.txt
+
+# ignore the server certificate related files
+client.truststore
+elasticsearch.crt
+server.cer
+server.keystore
+
+# ignore the elasticsearch-kibana.bat file
+elasticsearch-kibana.bat
+
+# ignore the ENV_vars.java file
+API_KEY.java
+ENV_vars.java
+
+# ignore the generated folder with JSON files
+web_scraped_data/
+bulk_web_scraped_data/
+
+# ignore the Kibana-Devl_Tool-useful commands.txt file
+Kibana-Devl_Tool-useful commands.txt
+
+# ignore the generated .log file
+/hs_err_pid60292.log
+
+# ignore all the generated .log files
+*.log
+
+# ignore the generated JSON file
+bulk_web_scraped_data.json
+
+# ignore the manual JSON file made for testing
+post_data_1000.json
+post_data_1000_updated.json

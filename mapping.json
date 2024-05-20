@@ -1,0 +1,13 @@
+{
+  "mappings": {
+    "properties": {
+      "Content": {"type": "text", "analyzer": "standard"},
+      "Breadcrumbs": {"type": "text", "fields": {"keyword": {"type": "keyword", "ignore_above": 256}}},
+      "Title": {"type": "text", "fields": {"keyword": {"type": "keyword", "ignore_above": 256}}},
+      "Author": {"type": "keyword"},
+      "URL": {"type": "keyword", "index": false},
+      "Date": {"type": "date", "format": "yyyy-MM-dd"},
+      "Tags": {"type": "text", "fields": {"keyword": {"type": "keyword", "ignore_above": 256}}}
+    }
+  }
+}
