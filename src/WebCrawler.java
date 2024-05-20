@@ -1,5 +1,6 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -45,7 +46,9 @@ public class WebCrawler {
      * @return A list of URLs to crawl
      */
     private static List<String> makeListofURLs(String url) {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(options);
 
         driver.get(PublicVars.BASE_URL);
 
@@ -140,7 +143,9 @@ public class WebCrawler {
      */
     private static void extractPostDetails(String post_url){//, WebDriver driver) {
         try {
-            WebDriver driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            WebDriver driver = new ChromeDriver(options);
             driver.get(post_url);
 
             // Add the driver to the list of drivers to ensure they are all closed at the end
