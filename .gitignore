@@ -27,8 +27,8 @@ API_KEY.java
 ENV_vars.java
 
 # ignore the generated folder with JSON files
-web_scraped_data/
-bulk_web_scraped_data/
+#web_scraped_data/
+#bulk_web_scraped_data/
 
 # ignore the Kibana-Devl_Tool-useful commands.txt file
 Kibana-Devl_Tool-useful commands.txt
@@ -40,8 +40,8 @@ Kibana-Devl_Tool-useful commands.txt
 *.log
 
 # ignore the generated JSON file
-bulk_web_scraped_data.json
+#bulk_web_scraped_data.json
 
 # ignore the manual JSON file made for testing
-post_data_1000.json
-post_data_1000_updated.json
+#post_data_1000.json
+#post_data_1000_updated.json
